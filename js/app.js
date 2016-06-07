@@ -8,7 +8,7 @@ $(function(){
 
 	function Pantry (type, ingredients) {
 		this.type = type;
-		this.ingredients = ingredients
+		this.ingredients = ingredients[Math.floor(Math.random() * ingredients.length)];
 	}
 	var strongIng = new Pantry("strong", ["glug of rum", "slug of whisky", "splash of gin"]);
 	var saltyIng = new Pantry("salty", ["olive on a stick", "salt-dusted rim", "rasher of bacon"]);
@@ -19,13 +19,12 @@ $(function(){
 	function Drink (input, type){
 		this.input = input;
 		this.type = type;
-	} 
+	}
 
 	var strongDrink = new Drink("yes", strongIng);
 	var saltyDrink = new Drink("yes", saltyIng);
 	var bitterDrink = new Drink("yes", bitterIng);
 	var sweetDrink = new Drink("yes", sweetIng);
-	var fruityDrnik = new Drink("yes", fruityIng);
-
-	console.log(saltyDrink);
+	var fruityDrink = new Drink("yes", fruityIng);
+	console.log(bitterDrink);
 })
