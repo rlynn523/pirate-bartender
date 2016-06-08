@@ -1,46 +1,39 @@
 $(function(){
-	$(".questions").text(strongQuest)
-	var input = $("#order").val();
-	$("#search").submit(function(e){
- 		e.preventDefault();
- 		var input = $("#order").val();
- 		var input = $("#order").val("");
- 	})
+	var ingredients = function(){ 
+		this.strong = ['glug of rum', 'slug of whisky', 'splash of gin'], 
+		this.salty = ['olive on a stick', 'salt-dusted rim', 'rasher of bacon'],
+		this.bitter = ['shake of bitters', 'splash of tonic', 'twist of lemon peel'],
+		this.sweet = ['sugar cube', 'spoonful of honey', 'splash of cola'],
+		this.fruity = ['slice of orange', 'dash of cassis', 'cherry on top']
+	};
+	var questions = function(){
+		this.strong = 'Do ye like yer drinks strong?',
+		this.salty = 'Do ye like it with a salty tang?',
+		this.bitter =  'Are ye a lubber who likes it bitter?',
+		this.sweet = 'Would ye like a bit of sweetness with yer poison?',
+		this.fruity = 'Are ye one for a fruity finish?'
+	};
 
-	function Pantry (ingredients) {
-		this.ingredients = ingredients[Math.floor(Math.random() * ingredients.length)];
+	submit = function(){
+		for (vars in questions()) {
+			console.log(vars);
+		}
+		var keys = questions.keys();
+		var preferences = {};
+		for(i=0; i < keys.length; i++) {
+			var question = keys[i];
+			if($('input[name="'+question+'"]:checked').val() == 'true'){
+				preferences[question] = true;
+			}
+		}
 	}
-	var strongIng = new Pantry(["glug of rum", "slug of whisky", "splash of gin"]);
-	var saltyIng = new Pantry(["olive on a stick", "salt-dusted rim", "rasher of bacon"]);
-	var bitterIng = new Pantry(["shake of bitters", "splash of tonic", "twist of lemon peel"]);
-	var sweetIng = new Pantry(["sugar cube", "spoonful of honey", "splash of cola"]);
-	var fruityIng = new Pantry(["slice of orange", "dash of cassis", "cherry on top"]);
-
-	function Question (question){
-		this.question = question
+	$(".submit").click(submit);
+	var bartender = function(){
+		this.createDrink = function(preferences){
+			for(i=0; i<preferences.length; i++) {
+				var preference = preferences[i]
+				myArray[Math.floor(Math.random() * myArray.length)]
+			}
+		}
 	}
-
-	var strongQuest = new Question("Do ye like yer drinks strong?");
-	var saltyQuest = new Question("Do ye like it with a salty tang?");
-	var bitterQuest = new Question("Are ye a lubber who likes it bitter?");
-	var sweetQuest = new Question("Would ye like a bit of sweetness with yer poison?");
-	var fruityQuest = new Question("Are ye one for a fruity finish?");
-
-	$(".strong").append(strongQuest.question);
-	$(".salty").append(saltyQuest.question);
-	$(".bitter").append(bitterQuest.question);
-	$(".sweet").append(sweetQuest.question);
-	$(".fruity").append(fruityQuest.question);
-
-	// function Drink (question, input, type){
-	// 	this.question = question;
-	// 	this.input = input;
-	// 	this.type = type;
-	// }
-
-	// var strongDrink = new Drink(strongQuest, "yes", strongIng);
-	// var saltyDrink = new Drink(saltyQuest, "yes", saltyIng);
-	// var bitterDrink = new Drink(bitterQuest, "yes", bitterIng);
-	// var sweetDrink = new Drink(sweetQuest, "yes", sweetIng);
-	// var fruityDrink = new Drink(fruityQuest, "yes", fruityIng);
-})
+});
