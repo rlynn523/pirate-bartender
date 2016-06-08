@@ -15,10 +15,10 @@ $(function(){
 	};
 
 	submit = function(){
-		for (vars in questions()) {
+		var questObj = new questions();
+		for (vars in questObj) {
 			console.log(vars);
 		}
-		var keys = questions.keys();
 		var preferences = {};
 		for(i=0; i < keys.length; i++) {
 			var question = keys[i];
