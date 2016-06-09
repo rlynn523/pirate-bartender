@@ -16,14 +16,13 @@ $(function(){
 
 	submit = function(){
 		var questObj = new questions();
-		for (vars in questObj) {
-			console.log(vars);
-		}
 		var preferences = {};
-		for(i=0; i < keys.length; i++) {
-			var question = keys[i];
+
+		for(vars in questObj) {
+			var question = vars
 			if($('input[name="'+question+'"]:checked').val() == 'true'){
 				preferences[question] = true;
+				console.log(preferences[question]);
 			}
 		}
 	}
@@ -32,7 +31,7 @@ $(function(){
 		this.createDrink = function(preferences){
 			for(i=0; i<preferences.length; i++) {
 				var preference = preferences[i]
-				myArray[Math.floor(Math.random() * myArray.length)]
+				preference[Math.floor(Math.random() * preference.length)];
 			}
 		}
 	}
