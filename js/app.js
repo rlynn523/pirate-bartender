@@ -19,19 +19,19 @@ $(function(){
 		var preferences = {};
 
 		for(vars in questObj) {
-			var question = vars
-			if($('input[name="'+question+'"]:checked').val() == 'true'){
-				preferences[question] = true;
-				console.log(preferences[question]);
+			if($('input[name="'+vars+'"]:checked').val() == 'true'){
+				preferences[vars] = vars;
+				console.log(preferences[vars]);
 			}
 		}
 	}
 	$(".submit").click(submit);
 	var bartender = function(){
+		var ingObj = new ingredients();
+
 		this.createDrink = function(preferences){
-			for(i=0; i<preferences.length; i++) {
-				var preference = preferences[i]
-				preference[Math.floor(Math.random() * preference.length)];
+			for(vars in ingObj) {
+				console.log()
 			}
 		}
 	}
