@@ -16,23 +16,26 @@ $(function(){
 
 	submit = function(){
 		var questObj = new questions();
+		var ingObj = new ingredients();
 		var preferences = {};
 
-		for(vars in questObj) {
+		for(var vars in questObj) {
 			if($('input[name="'+vars+'"]:checked').val() == 'true'){
 				preferences[vars] = vars;
-				console.log(preferences[vars]);
+				var itemsArray = ingObj[vars];		
+				makeDrink(itemsArray);
 			}
 		}
 	}
 	$(".submit").click(submit);
-	var bartender = function(){
-		var ingObj = new ingredients();
-
-		this.createDrink = function(preferences){
-			for(vars in ingObj) {
-				console.log()
-			}
-		}
+	
+	function makeDrink(itemsArray){
+		var ing = itemsArray[Math.floor(Math.random() * itemsArray.length)];
+		console.log(ing);
+		$(".drink-results").append(ing + '<br>');
 	}
+	// Bartender.prototype.makeDrink = function(ing) {
+	// 	this.ing = itemsArray[Math.floor(Math.random() * itemsArray.length)];
+	// 	console.log(ing);
+	// }
 });
