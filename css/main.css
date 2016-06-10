@@ -30,7 +30,7 @@ body {
 	margin-top: 25px;
 	display: none;
 }
-.submit {
+.submit, .reset {
 	background-color: #42A5F5;
 	opacity: 0.8;
 	width: 10%;
