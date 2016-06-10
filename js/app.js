@@ -16,27 +16,47 @@ $(function(){
 
 	submit = function(){
 		$(".drink-results").show();
+		// created new questions object questObj
 		var questObj = new questions();
-		var ingObj = new ingredients();
+		// created an empty object 'preferences'
 		var preferences = {};
 
 		for(var vars in questObj) {
 			if($('input[name="'+vars+'"]:checked').val() == 'true'){
+				// for each button that is checked, pass that key into the empty preferences object
 				preferences[vars] = vars;
-				var itemsArray = ingObj[vars];		
-				var pirateBartender = new Bartender(itemsArray);
-				pirateBartender.makeDrink();
 			}
 		}
+		// created a new Bartender object named pirateBartender
+		var pirateBartender = new Bartender();
+
+		// passed the preferences object (which holds the users preferences) into the makeDrink method
+		pirateBartender.makeDrink(preferences);
 	}
 
 	$(".submit").click(submit);
+	$(".reset").click(function(){
+		$(".drink-results").html("").hide();
+		document.getElementById("form").reset();
+	})
 
-	function Bartender(itemsArray){
-		this.makeDrink = function(){
-			var ing = itemsArray[Math.floor(Math.random() * itemsArray.length)];
-			console.log(ing);
-			$(".drink-results").append(ing + '<br>');
+	function Bartender(){
+		// created new ingredients object ingObj
+		var ingObj = new ingredients();
+		// created makeDrink method for object Bartender that passes the argument preferences
+		/**
+		 * makeDrink is a method that takes the user's preferences, randomly selects a value from the key array, and displays on the page
+		 * @param  {[array]} - contains the keys from ingredients
+		 * @return {[type]}
+		 */
+		this.makeDrink = function(preferences){
+			// for each individual preference key in the preferences object
+			for (preference in preferences){
+
+				var itemsArray = ingObj[preference];		
+				var ing = itemsArray[Math.floor(Math.random() * itemsArray.length)];
+				$(".drink-results").append(ing + '<br>');
+			}
 		}
 	}
 });
