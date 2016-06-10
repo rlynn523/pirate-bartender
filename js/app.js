@@ -23,19 +23,18 @@ $(function(){
 			if($('input[name="'+vars+'"]:checked').val() == 'true'){
 				preferences[vars] = vars;
 				var itemsArray = ingObj[vars];		
-				makeDrink(itemsArray);
+				var pirateBartender = new Bartender(itemsArray);
+				pirateBartender.makeDrink();
 			}
 		}
 	}
 	$(".submit").click(submit);
 	
-	function makeDrink(itemsArray){
-		var ing = itemsArray[Math.floor(Math.random() * itemsArray.length)];
-		console.log(ing);
-		$(".drink-results").append(ing + '<br>');
+	function Bartender(itemsArray){
+		this.makeDrink = function(){
+			var ing = itemsArray[Math.floor(Math.random() * itemsArray.length)];
+			console.log(ing);
+			$(".drink-results").append(ing + '<br>');
+		}
 	}
-	// Bartender.prototype.makeDrink = function(ing) {
-	// 	this.ing = itemsArray[Math.floor(Math.random() * itemsArray.length)];
-	// 	console.log(ing);
-	// }
 });

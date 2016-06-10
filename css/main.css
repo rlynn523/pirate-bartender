@@ -1,0 +1,36 @@
+html {
+  	box-sizing: border-box;
+}
+*, *:before, *:after {
+ 	box-sizing: inherit;
+}
+body {
+	text-align: center;
+	font-family: 'Roboto', sans-serif;
+	background-image: url('https://images.unsplash.com/photo-1444487233259-dae9d907a740?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&s=3729d8e69312d687ca9dd7733d7348c0');
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: fixed;
+	color: #FFFFFF;
+}
+.title, .questions, .drink-results{
+	background-color: #42A5F5;
+	opacity: 0.9;
+	width: 33%;
+	margin: 0 auto;
+}
+.title {
+	font-size: 2em;
+	margin-bottom: 25px;
+}
+.drink-results {
+	padding-left: 0;
+	margin-top: 25px;
+}
+.submit {
+	background-color: #42A5F5;
+	opacity: 0.8;
+	width: 10%;
+	margin: 0 auto;
+	color: #FFFFFF;
+}
