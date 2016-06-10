@@ -46,8 +46,8 @@ $(function(){
 		// created makeDrink method for object Bartender that passes the argument preferences
 		/**
 		 * makeDrink is a method that takes the user's preferences, randomly selects a value from the key array, and displays on the page
-		 * @param  {[array]} - contains the keys from ingredients
-		 * @return {[type]}
+		 * @param  [array] - contains the keys from ingredients
+		 * @return [type]
 		 */
 		this.makeDrink = function(preferences){
 			// for each individual preference key in the preferences object
