@@ -15,6 +15,7 @@ $(function(){
 	};
 
 	submit = function(){
+		$(".drink-results").show();
 		var questObj = new questions();
 		var ingObj = new ingredients();
 		var preferences = {};
@@ -28,8 +29,9 @@ $(function(){
 			}
 		}
 	}
+
 	$(".submit").click(submit);
-	
+
 	function Bartender(itemsArray){
 		this.makeDrink = function(){
 			var ing = itemsArray[Math.floor(Math.random() * itemsArray.length)];

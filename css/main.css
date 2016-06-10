@@ -14,7 +14,7 @@ body {
 	color: #FFFFFF;
 }
 .title, .questions, .drink-results{
-	background-color: #42A5F5;
+	background-color: #90A4AE;
 	opacity: 0.9;
 	width: 33%;
 	margin: 0 auto;
@@ -25,7 +25,10 @@ body {
 }
 .drink-results {
 	padding-left: 0;
+	padding-top: 10px;
+	padding-bottom: 10px;
 	margin-top: 25px;
+	display: none;
 }
 .submit {
 	background-color: #42A5F5;
